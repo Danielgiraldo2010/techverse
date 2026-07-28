@@ -22,6 +22,11 @@ export const metadata: Metadata = {
     template: `%s | ${STORE_CONFIG.name}`
   },
   description: "Tienda online de audífonos inalámbricos TECHVERSE con catálogo estático, carrito persistente y pago preparado para Mercado Pago Colombia.",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg"
+  },
   openGraph: {
     title: `${STORE_CONFIG.name} | ${STORE_CONFIG.slogan}`,
     description: "Tienda online de audífonos inalámbricos TECHVERSE con carrito persistente y checkout preparado para Mercado Pago Colombia.",
