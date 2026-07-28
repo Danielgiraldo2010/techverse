@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 330" role="img" aria-labelledby="title desc">
+  <title id="title">AirPods Max</title>
+  <desc id="desc">Ilustración de AirPods Max con diadema y copas grandes.</desc>
+  <defs>
+    <linearGradient id="maxMetal" x1="0" x2="1">
+      <stop stop-color="#d7dee2" />
+      <stop offset=".5" stop-color="#f7f9fa" />
+      <stop offset="1" stop-color="#aeb9bf" />
+    </linearGradient>
+    <linearGradient id="maxPad" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#313c42" />
+      <stop offset="1" stop-color="#0b1013" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="210" cy="298" rx="130" ry="20" fill="rgba(0,0,0,.10)" />
+  <path d="M114 166v-48c0-99 192-99 192 0v48" fill="none" stroke="url(#maxMetal)" stroke-width="37" stroke-linecap="round" />
+  <path d="M135 106c21-54 129-54 150 0" fill="none" stroke="#263038" stroke-width="17" stroke-linecap="round" />
+  <rect x="59" y="144" width="122" height="151" rx="44" fill="url(#maxMetal)" stroke="#aeb8bd" stroke-width="2" />
+  <rect x="239" y="144" width="122" height="151" rx="44" fill="url(#maxMetal)" stroke="#aeb8bd" stroke-width="2" />
+  <rect x="78" y="162" width="87" height="115" rx="32" fill="url(#maxPad)" />
+  <rect x="255" y="162" width="87" height="115" rx="32" fill="url(#maxPad)" />
+  <circle cx="327" cy="156" r="9" fill="#879298" />
+</svg>

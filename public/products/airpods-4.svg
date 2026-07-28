@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 330" role="img" aria-labelledby="title desc">
+  <title id="title">AirPods 4</title>
+  <desc id="desc">Ilustración de AirPods 4 con estuche abierto.</desc>
+  <defs>
+    <linearGradient id="fourCase" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff" />
+      <stop offset="1" stop-color="#dadbde" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="210" cy="298" rx="122" ry="18" fill="rgba(0,0,0,.09)" />
+  <rect x="84" y="166" width="252" height="125" rx="58" fill="url(#fourCase)" stroke="#ced0d4" stroke-width="2" />
+  <path d="M107 203c60-35 146-35 206 0" fill="none" stroke="#c5c7cb" stroke-width="2" />
+  <circle cx="210" cy="260" r="5" fill="#88ce9d" />
+  <g transform="translate(86 3)">
+    <path d="M74 16c-31 0-52 24-52 55 0 27 18 47 42 47 18 0 30-12 30-29V49c0-20-8-33-20-33Z" fill="#fafafa" stroke="#d0d2d5" stroke-width="2" />
+    <rect x="70" y="101" width="22" height="105" rx="11" fill="#fafafa" stroke="#d0d2d5" stroke-width="2" />
+    <path d="M174 16c31 0 52 24 52 55 0 27-18 47-42 47-18 0-30-12-30-29V49c0-20 8-33 20-33Z" fill="#fafafa" stroke="#d0d2d5" stroke-width="2" />
+    <rect x="156" y="101" width="22" height="105" rx="11" fill="#fafafa" stroke="#d0d2d5" stroke-width="2" />
+  </g>
+</svg>

@@ -1,0 +1,2115 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tienda online de audífonos inalámbricos con envío nacional y pago contraentrega.">
+  <meta name="theme-color" content="#ffffff">
+  <title>TECHVERSE | Tecnología sin límites</title>
+
+  <style>
+    :root{
+      --black:#1d1d1f;
+      --text:#1d1d1f;
+      --muted:#6e6e73;
+      --blue:#087cff;
+      --blue-hover:#00aeea;
+      --green:#14c8cc;
+      --red:#e53935;
+      --cream:#f5f5f7;
+      --white:#ffffff;
+      --line:#d2d2d7;
+      --soft-line:#e8e8ed;
+      --shadow:0 22px 70px rgba(0,0,0,.10);
+      --shadow-small:0 12px 35px rgba(0,0,0,.08);
+      --radius:28px;
+      --container:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:var(--white);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",
+      "Helvetica Neue",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.45;
+    }
+
+    body.no-scroll{overflow:hidden}
+
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    img,svg{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    h1,h2,h3,h4,p{margin-top:0}
+    .container{width:min(calc(100% - 36px),var(--container));margin-inline:auto}
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+    }
+
+
+    .brand-logo{
+      width:168px;
+      height:auto;
+      object-fit:contain;
+      display:block;
+    }
+    .footer-brand-logo{
+      width:210px;
+      height:auto;
+      object-fit:contain;
+      display:block;
+      border-radius:18px;
+    }
+    .header .logo{
+      min-width:185px;
+    }
+    @media(max-width:700px){
+      .brand-logo{width:145px}
+      .header .logo{min-width:auto}
+      .footer-brand-logo{width:185px}
+    }
+
+    /* Barra superior */
+    .announcement{
+      background:var(--black);
+      color:#fff;
+      font-size:13px;
+      letter-spacing:.01em;
+    }
+    .announcement .container{
+      min-height:40px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      text-align:center;
+    }
+    .announcement strong{font-weight:700}
+    .announcement span{color:#d6d6da}
+
+    /* Navegación */
+    .header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:saturate(180%) blur(20px);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .nav{
+      min-height:66px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:750;
+      letter-spacing:-.03em;
+      font-size:20px;
+    }
+    .logo-mark{
+      width:31px;
+      height:31px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      color:white;
+      font-size:15px;
+      font-weight:800;
+      background:linear-gradient(145deg,#111,#4f4f52);
+      box-shadow:inset 0 1px rgba(255,255,255,.25);
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:30px;
+      font-size:13px;
+      color:#3a3a3c;
+    }
+    .nav-links a:hover{color:var(--blue)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .icon-button{
+      position:relative;
+      width:42px;height:42px;
+      border-radius:50%;
+      border:0;
+      display:grid;
+      place-items:center;
+      background:transparent;
+      color:var(--black);
+    }
+    .icon-button:hover{background:var(--cream)}
+    .cart-badge{
+      position:absolute;
+      top:1px;right:0;
+      min-width:18px;height:18px;
+      padding:0 5px;
+      border-radius:99px;
+      display:grid;
+      place-items:center;
+      background:var(--blue);
+      color:white;
+      font-size:10px;
+      font-weight:800;
+      border:2px solid white;
+    }
+    .mobile-toggle{display:none}
+
+    /* Botones */
+    .btn{
+      min-height:46px;
+      padding:0 21px;
+      border-radius:999px;
+      border:1px solid transparent;
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      gap:9px;
+      font-size:15px;
+      font-weight:650;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      color:white;
+      background:var(--blue);
+    }
+    .btn-primary:hover{background:var(--blue-hover)}
+    .btn-dark{
+      color:white;
+      background:var(--black);
+    }
+    .btn-dark:hover{background:#000}
+    .btn-outline{
+      color:var(--blue);
+      border-color:var(--blue);
+      background:transparent;
+    }
+    .btn-outline:hover{background:#f2f8ff}
+    .btn-white{
+      background:white;
+      color:var(--text);
+      box-shadow:var(--shadow-small);
+    }
+    .btn-green{background:var(--green);color:white}
+    .btn-block{width:100%}
+
+    /* Hero */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 50% 88%,rgba(160,215,255,.65),transparent 30%),
+        linear-gradient(180deg,#fbfbfd 0%,#f5f5f7 70%,#eef7ff 100%);
+      min-height:720px;
+      padding:76px 0 30px;
+      text-align:center;
+    }
+    .hero-copy{
+      max-width:880px;
+      margin:0 auto;
+      position:relative;
+      z-index:2;
+    }
+    .eyebrow{
+      color:#bf4800;
+      font-size:14px;
+      font-weight:700;
+      margin-bottom:9px;
+    }
+    .hero h1{
+      margin-bottom:16px;
+      font-size:clamp(49px,7.7vw,91px);
+      line-height:.95;
+      letter-spacing:-.075em;
+      font-weight:760;
+    }
+    .hero-subtitle{
+      margin:0 auto;
+      max-width:720px;
+      font-size:clamp(20px,2.5vw,28px);
+      line-height:1.2;
+      letter-spacing:-.03em;
+      color:#3a3a3c;
+    }
+    .hero-actions{
+      margin-top:28px;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .hero-note{
+      margin-top:17px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .hero-visual{
+      position:relative;
+      height:335px;
+      max-width:900px;
+      margin:26px auto 0;
+    }
+    .hero-glow{
+      position:absolute;
+      left:50%;
+      bottom:-160px;
+      width:570px;
+      height:570px;
+      transform:translateX(-50%);
+      border-radius:50%;
+      background:radial-gradient(circle,#fff 0%,rgba(255,255,255,.72) 45%,transparent 71%);
+      filter:blur(3px);
+    }
+    .hero-product{
+      position:absolute;
+      filter:drop-shadow(0 30px 30px rgba(0,0,0,.16));
+      transition:transform .45s ease;
+    }
+    .hero-product:hover{transform:translateY(-9px)}
+    .hero-pro{width:300px;left:50%;top:5px;transform:translateX(-50%);z-index:3}
+    .hero-pro:hover{transform:translateX(-50%) translateY(-9px)}
+    .hero-four{width:205px;left:5%;top:74px;transform:rotate(-9deg)}
+    .hero-max{width:230px;right:2%;top:45px;transform:rotate(7deg)}
+
+    /* Confianza */
+    .trust-strip{
+      border-bottom:1px solid var(--soft-line);
+      background:white;
+    }
+    .trust-grid{
+      min-height:116px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      align-items:center;
+    }
+    .trust-item{
+      min-height:60px;
+      padding:10px 24px;
+      display:grid;
+      grid-template-columns:auto 1fr;
+      align-items:center;
+      gap:13px;
+      border-right:1px solid var(--soft-line);
+    }
+    .trust-item:last-child{border-right:0}
+    .trust-icon{
+      width:42px;height:42px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--cream);
+      color:var(--blue);
+    }
+    .trust-item strong{display:block;font-size:14px}
+    .trust-item span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+
+    /* Secciones */
+    .section{padding:110px 0}
+    .section-soft{background:var(--cream)}
+    .section-header{
+      max-width:790px;
+      margin:0 auto 54px;
+      text-align:center;
+    }
+    .section-header h2{
+      margin-bottom:14px;
+      font-size:clamp(37px,5.3vw,64px);
+      line-height:1;
+      letter-spacing:-.055em;
+    }
+    .section-header p{
+      margin-bottom:0;
+      color:var(--muted);
+      font-size:19px;
+      letter-spacing:-.015em;
+    }
+
+    /* Productos */
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+      align-items:stretch;
+    }
+    .product-card{
+      position:relative;
+      min-width:0;
+      overflow:hidden;
+      border-radius:var(--radius);
+      background:white;
+      box-shadow:var(--shadow-small);
+      border:1px solid rgba(0,0,0,.035);
+      display:flex;
+      flex-direction:column;
+      transition:.28s ease;
+    }
+    .product-card:hover{
+      transform:translateY(-7px);
+      box-shadow:var(--shadow);
+    }
+    .product-media{
+      position:relative;
+      min-height:360px;
+      display:grid;
+      place-items:center;
+      padding:34px 24px 18px;
+      background:linear-gradient(180deg,#fff,#f7f7f9);
+      overflow:hidden;
+    }
+    .product-card.featured .product-media{
+      background:linear-gradient(180deg,#f9fbff,#eaf5ff);
+    }
+    .discount{
+      position:absolute;
+      top:20px;left:20px;
+      z-index:4;
+      padding:7px 11px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:750;
+      color:#b42318;
+      background:#fff0ee;
+    }
+    .stock{
+      position:absolute;
+      top:20px;right:20px;
+      z-index:4;
+      font-size:11px;
+      color:#22863a;
+      background:#eaf8ee;
+      padding:7px 10px;
+      border-radius:999px;
+      font-weight:700;
+    }
+    .product-svg{
+      width:100%;
+      height:285px;
+      filter:drop-shadow(0 28px 26px rgba(0,0,0,.12));
+      transition:transform .35s ease;
+    }
+    .product-card:hover .product-svg{transform:scale(1.025)}
+    .product-content{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      padding:27px;
+    }
+    .rating{
+      display:flex;
+      align-items:center;
+      gap:7px;
+      color:#f5a623;
+      font-size:13px;
+      margin-bottom:12px;
+    }
+    .rating span{color:var(--muted)}
+    .product-title{
+      font-size:25px;
+      line-height:1.06;
+      letter-spacing:-.04em;
+      margin-bottom:7px;
+    }
+    .product-subtitle{
+      min-height:44px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      margin:16px 0;
+    }
+    .chip{
+      padding:6px 9px;
+      border-radius:999px;
+      color:#4a4a4f;
+      background:var(--cream);
+      font-size:11px;
+      font-weight:650;
+    }
+    .includes{
+      margin:0 0 17px;
+      padding:13px 14px;
+      border-radius:14px;
+      color:#3a3a3c;
+      background:#f8f8fa;
+      font-size:12px;
+    }
+    .includes strong{color:var(--text)}
+    .price-wrap{margin-top:auto}
+    .old-price{
+      color:#8e8e93;
+      text-decoration:line-through;
+      font-size:14px;
+    }
+    .price{
+      display:block;
+      font-size:31px;
+      letter-spacing:-.045em;
+      line-height:1.05;
+      font-weight:760;
+      margin:4px 0;
+    }
+    .finance{
+      min-height:34px;
+      color:var(--muted);
+      font-size:12px;
+      margin-bottom:17px;
+    }
+    .product-actions{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:9px;
+    }
+    .quick-view{
+      width:47px;
+      height:47px;
+      border:1px solid var(--line);
+      border-radius:50%;
+      background:white;
+      display:grid;
+      place-items:center;
+      color:var(--text);
+    }
+    .quick-view:hover{border-color:var(--blue);color:var(--blue)}
+
+    /* Experiencia */
+    .experience-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:24px;
+    }
+    .experience-main,.experience-side{
+      border-radius:34px;
+      overflow:hidden;
+    }
+    .experience-main{
+      min-height:600px;
+      padding:56px;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      background:
+        radial-gradient(circle at 50% 24%,rgba(78,174,255,.44),transparent 29%),
+        linear-gradient(145deg,#03070d,#102b45 62%,#0c1320);
+    }
+    .experience-main h2{
+      max-width:680px;
+      font-size:clamp(44px,5.3vw,72px);
+      line-height:.98;
+      letter-spacing:-.06em;
+      margin-bottom:18px;
+    }
+    .experience-main p{
+      color:#cfd8e3;
+      max-width:570px;
+      font-size:18px;
+    }
+    .sound-waves{
+      margin:auto;
+      width:min(100%,660px);
+      height:180px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+    }
+    .sound-waves span{
+      width:8px;
+      border-radius:99px;
+      background:linear-gradient(#8fd7ff,#fff);
+      box-shadow:0 0 20px rgba(119,206,255,.45);
+      animation:wave 1.6s ease-in-out infinite;
+    }
+    .sound-waves span:nth-child(1){height:28px;animation-delay:.05s}
+    .sound-waves span:nth-child(2){height:64px;animation-delay:.12s}
+    .sound-waves span:nth-child(3){height:110px;animation-delay:.19s}
+    .sound-waves span:nth-child(4){height:155px;animation-delay:.26s}
+    .sound-waves span:nth-child(5){height:92px;animation-delay:.33s}
+    .sound-waves span:nth-child(6){height:46px;animation-delay:.40s}
+    .sound-waves span:nth-child(7){height:132px;animation-delay:.47s}
+    .sound-waves span:nth-child(8){height:75px;animation-delay:.54s}
+    .sound-waves span:nth-child(9){height:145px;animation-delay:.61s}
+    .sound-waves span:nth-child(10){height:57px;animation-delay:.68s}
+    .sound-waves span:nth-child(11){height:102px;animation-delay:.75s}
+    .sound-waves span:nth-child(12){height:32px;animation-delay:.82s}
+    @keyframes wave{50%{transform:scaleY(.48);opacity:.7}}
+
+    .experience-side{
+      display:grid;
+      grid-template-rows:1fr 1fr;
+      gap:24px;
+    }
+    .info-card{
+      min-height:287px;
+      padding:39px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      background:white;
+    }
+    .info-card:first-child{
+      background:linear-gradient(145deg,#f4efff,#e8dcff);
+    }
+    .info-card:last-child{
+      background:linear-gradient(145deg,#e8fff6,#d7f7e9);
+    }
+    .info-card .big-icon{
+      margin-bottom:auto;
+      width:62px;height:62px;
+      border-radius:20px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.7);
+    }
+    .info-card h3{
+      font-size:30px;
+      line-height:1;
+      letter-spacing:-.045em;
+      margin-bottom:10px;
+    }
+    .info-card p{color:#515155;margin-bottom:0}
+
+    /* Comparador */
+    .comparison{
+      overflow:auto;
+      background:white;
+      border-radius:28px;
+      box-shadow:var(--shadow-small);
+    }
+    .comparison table{
+      width:100%;
+      min-width:780px;
+      border-collapse:collapse;
+    }
+    .comparison th,.comparison td{
+      padding:23px 26px;
+      text-align:center;
+      border-bottom:1px solid var(--soft-line);
+    }
+    .comparison th:first-child,.comparison td:first-child{
+      text-align:left;
+      font-weight:650;
+      position:sticky;
+      left:0;
+      background:white;
+      z-index:2;
+    }
+    .comparison thead th{
+      padding-top:31px;
+      padding-bottom:31px;
+      font-size:18px;
+      letter-spacing:-.02em;
+    }
+    .comparison tbody tr:last-child td{border-bottom:0}
+    .check{color:var(--green);font-weight:800}
+    .dash{color:#b0b0b4}
+
+    /* Reseñas */
+    .review-summary{
+      display:grid;
+      grid-template-columns:.62fr 1.38fr;
+      gap:24px;
+      margin-bottom:25px;
+    }
+    .score-card,.rating-bars{
+      border-radius:26px;
+      padding:35px;
+      background:white;
+      box-shadow:var(--shadow-small);
+    }
+    .score-number{
+      font-size:70px;
+      line-height:.9;
+      font-weight:760;
+      letter-spacing:-.06em;
+    }
+    .stars{color:#f5a623;letter-spacing:2px;margin:12px 0 7px}
+    .rating-bars{display:grid;gap:12px}
+    .bar-row{
+      display:grid;
+      grid-template-columns:48px 1fr 35px;
+      gap:12px;
+      align-items:center;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .bar{
+      overflow:hidden;
+      height:7px;
+      border-radius:99px;
+      background:#ededf0;
+    }
+    .bar span{
+      display:block;height:100%;
+      border-radius:inherit;
+      background:#f5a623;
+    }
+    .review-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .review-card{
+      padding:28px;
+      border-radius:24px;
+      background:white;
+      box-shadow:var(--shadow-small);
+    }
+    .review-card p{color:#3a3a3c}
+    .buyer{
+      padding-top:18px;
+      border-top:1px solid var(--soft-line);
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .avatar{
+      width:42px;height:42px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--cream);
+      font-size:12px;
+      font-weight:750;
+    }
+    .buyer strong,.buyer small{display:block}
+    .buyer small{color:var(--green);font-size:11px;margin-top:2px}
+
+    /* FAQ */
+    .faq{max-width:900px;margin-inline:auto}
+    .faq details{
+      border-bottom:1px solid var(--line);
+    }
+    .faq summary{
+      list-style:none;
+      cursor:pointer;
+      padding:24px 6px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      font-size:18px;
+      font-weight:650;
+    }
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{
+      content:"+";
+      font-size:25px;
+      font-weight:300;
+      transition:.2s ease;
+    }
+    .faq details[open] summary::after{transform:rotate(45deg)}
+    .faq details p{
+      padding:0 46px 24px 6px;
+      color:var(--muted);
+      margin:0;
+    }
+
+    /* CTA */
+    .final-cta{
+      padding:90px 0;
+      background:var(--black);
+      color:white;
+      text-align:center;
+    }
+    .final-cta h2{
+      margin-bottom:14px;
+      font-size:clamp(40px,5.5vw,68px);
+      letter-spacing:-.06em;
+      line-height:1;
+    }
+    .final-cta p{
+      max-width:670px;
+      margin:0 auto 27px;
+      color:#c7c7cc;
+      font-size:18px;
+    }
+    .cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+    }
+
+    /* Footer */
+    footer{
+      padding:48px 0 28px;
+      background:#f5f5f7;
+      color:#515154;
+      font-size:12px;
+    }
+    .footer-top{
+      display:grid;
+      grid-template-columns:1.4fr repeat(3,1fr);
+      gap:35px;
+      padding-bottom:34px;
+      border-bottom:1px solid var(--line);
+    }
+    .footer-brand p{
+      max-width:330px;
+      color:var(--muted);
+      margin-top:14px;
+    }
+    .footer-column h4{
+      color:var(--text);
+      margin-bottom:13px;
+      font-size:12px;
+    }
+    .footer-column a{
+      display:block;
+      margin:9px 0;
+      color:#5c5c61;
+    }
+    .footer-column a:hover{text-decoration:underline}
+    .legal{
+      padding-top:20px;
+      color:#77777b;
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+    }
+    .legal p{margin:0;max-width:850px}
+
+    /* Carrito lateral */
+    .overlay{
+      position:fixed;
+      inset:0;
+      z-index:90;
+      background:rgba(0,0,0,.38);
+      opacity:0;
+      pointer-events:none;
+      transition:.25s ease;
+    }
+    .overlay.show{opacity:1;pointer-events:auto}
+    .drawer{
+      position:fixed;
+      top:0;right:0;
+      z-index:100;
+      width:min(440px,100%);
+      height:100dvh;
+      background:white;
+      transform:translateX(105%);
+      transition:.3s cubic-bezier(.2,.8,.2,1);
+      display:flex;
+      flex-direction:column;
+      box-shadow:-20px 0 60px rgba(0,0,0,.17);
+    }
+    .drawer.show{transform:translateX(0)}
+    .drawer-header{
+      padding:22px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid var(--soft-line);
+    }
+    .drawer-header h3{margin:0;font-size:23px;letter-spacing:-.035em}
+    .drawer-body{flex:1;overflow:auto;padding:22px}
+    .empty-cart{
+      height:100%;
+      min-height:310px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      color:var(--muted);
+    }
+    .cart-item{
+      display:grid;
+      grid-template-columns:72px 1fr auto;
+      gap:14px;
+      padding:16px 0;
+      border-bottom:1px solid var(--soft-line);
+    }
+    .cart-thumb{
+      width:72px;height:72px;
+      border-radius:18px;
+      display:grid;place-items:center;
+      background:var(--cream);
+      font-size:24px;
+    }
+    .cart-item strong{font-size:14px}
+    .cart-item small{display:block;color:var(--muted);margin:4px 0}
+    .cart-remove{
+      border:0;background:transparent;color:#a00;padding:0 3px;height:24px
+    }
+    .drawer-footer{
+      padding:20px 24px 25px;
+      border-top:1px solid var(--soft-line);
+      background:white;
+    }
+    .total-row{
+      display:flex;
+      justify-content:space-between;
+      font-size:18px;
+      margin-bottom:15px;
+    }
+    .shipping-note{color:var(--muted);font-size:11px;margin-top:10px;text-align:center}
+
+    /* Modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:120;
+      padding:24px;
+      display:grid;
+      place-items:center;
+      background:rgba(0,0,0,.44);
+      opacity:0;
+      pointer-events:none;
+      transition:.23s ease;
+    }
+    .modal.show{opacity:1;pointer-events:auto}
+    .modal-dialog{
+      width:min(720px,100%);
+      max-height:calc(100dvh - 48px);
+      overflow:auto;
+      border-radius:28px;
+      background:white;
+      box-shadow:0 30px 90px rgba(0,0,0,.28);
+      transform:translateY(18px) scale(.985);
+      transition:.25s ease;
+    }
+    .modal.show .modal-dialog{transform:none}
+    .modal-header{
+      position:sticky;
+      top:0;
+      z-index:3;
+      padding:22px 25px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--soft-line);
+    }
+    .modal-header h3{margin:0;font-size:23px}
+    .modal-body{padding:26px}
+    .checkout-summary{
+      padding:17px;
+      margin-bottom:20px;
+      border-radius:18px;
+      background:var(--cream);
+    }
+    .checkout-summary div{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      padding:5px 0;
+    }
+    .checkout-summary .grand-total{
+      margin-top:7px;
+      padding-top:12px;
+      border-top:1px solid var(--line);
+      font-weight:800;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .field{display:grid;gap:7px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:12px;font-weight:700;color:#454549}
+    .field input,.field select,.field textarea{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:13px;
+      padding:13px 14px;
+      outline:0;
+      background:white;
+    }
+    .field textarea{min-height:85px;resize:vertical}
+    .field input:focus,.field select:focus,.field textarea:focus{
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(0,113,227,.12);
+    }
+    .form-help{
+      padding:12px 14px;
+      border-radius:13px;
+      background:#fff8e6;
+      color:#6b5218;
+      font-size:11px;
+      margin:18px 0;
+    }
+
+    /* Toast */
+    .toast{
+      position:fixed;
+      z-index:150;
+      left:50%;
+      bottom:28px;
+      transform:translate(-50%,110px);
+      opacity:0;
+      padding:13px 18px;
+      color:white;
+      background:#1d1d1f;
+      border-radius:999px;
+      box-shadow:var(--shadow);
+      transition:.25s ease;
+      font-size:13px;
+      font-weight:650;
+    }
+    .toast.show{transform:translate(-50%,0);opacity:1}
+
+    /* Responsive */
+    @media(max-width:980px){
+      .nav-links{display:none}
+      .mobile-toggle{display:grid}
+      .trust-grid{grid-template-columns:1fr 1fr}
+      .trust-item:nth-child(2){border-right:0}
+      .trust-item:nth-child(-n+2){border-bottom:1px solid var(--soft-line)}
+      .product-grid{grid-template-columns:1fr 1fr}
+      .product-card:last-child{grid-column:1/-1}
+      .product-card:last-child .product-media{min-height:420px}
+      .experience-grid{grid-template-columns:1fr}
+      .experience-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+      .review-grid{grid-template-columns:1fr 1fr}
+      .review-card:last-child{grid-column:1/-1}
+      .footer-top{grid-template-columns:1.4fr 1fr 1fr}
+      .footer-column:last-child{grid-column:2/-1}
+      .hero-four{left:-2%}
+      .hero-max{right:-4%}
+    }
+
+    @media(max-width:700px){
+      .announcement .container{min-height:48px;gap:7px;flex-direction:column;padding:7px 0}
+      .nav{min-height:60px}
+      .hero{min-height:670px;padding-top:59px}
+      .hero h1{font-size:50px}
+      .hero-subtitle{font-size:20px}
+      .hero-visual{height:300px}
+      .hero-pro{width:235px}
+      .hero-four{width:145px;top:90px;left:-4%}
+      .hero-max{width:160px;top:82px;right:-5%}
+      .trust-grid{grid-template-columns:1fr}
+      .trust-item{border-right:0;border-bottom:1px solid var(--soft-line)!important}
+      .trust-item:last-child{border-bottom:0!important}
+      .section{padding:78px 0}
+      .section-header{margin-bottom:36px}
+      .section-header p{font-size:17px}
+      .product-grid{grid-template-columns:1fr}
+      .product-card:last-child{grid-column:auto}
+      .product-card:last-child .product-media{min-height:360px}
+      .product-media{min-height:335px}
+      .experience-main{min-height:540px;padding:34px 28px}
+      .experience-side{grid-template-columns:1fr}
+      .info-card{min-height:245px}
+      .review-summary{grid-template-columns:1fr}
+      .review-grid{grid-template-columns:1fr}
+      .review-card:last-child{grid-column:auto}
+      .footer-top{grid-template-columns:1fr 1fr}
+      .footer-brand{grid-column:1/-1}
+      .footer-column:last-child{grid-column:auto}
+      .legal{flex-direction:column}
+      .form-grid{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .modal{padding:10px}
+      .modal-dialog{max-height:calc(100dvh - 20px)}
+    }
+
+    @media(max-width:430px){
+      .container{width:min(calc(100% - 24px),var(--container))}
+      .logo{font-size:18px}
+      .hero{min-height:635px}
+      .hero h1{font-size:45px}
+      .hero-product.hero-pro{width:210px}
+      .hero-product.hero-four{width:125px}
+      .hero-product.hero-max{width:140px}
+      .product-content{padding:23px}
+      .product-media{min-height:310px}
+      .product-svg{height:250px}
+      .section-header h2{font-size:38px}
+      .footer-top{grid-template-columns:1fr}
+      .footer-column:last-child{grid-column:auto}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- CAMBIOS RÁPIDOS:
+       1) La marca ya está configurada como TECHVERSE.
+       2) Reemplaza el número 573001234567 por tu WhatsApp.
+       3) Cambia los precios y características en los objetos PRODUCTS, al final del archivo.
+       4) Sustituye los SVG por fotografías propias cuando las tengas.
+  -->
+
+  <div class="announcement">
+    <div class="container">
+      <strong>Envíos a toda Colombia</strong>
+      <span>•</span>
+      <span>Pago contraentrega disponible</span>
+      <span>•</span>
+      <span>Despacho rápido y seguro</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo" aria-label="Ir al inicio de TECHVERSE">
+        <img class="brand-logo" src="assets/logo-techverse.jpg" alt="TECHVERSE - Tecnología sin límites">
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#productos">Productos</a>
+        <a href="#comparar">Comparar</a>
+        <a href="#opiniones">Opiniones</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="icon-button" href="https://wa.me/573001234567?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20aud%C3%ADfonos" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M20.5 11.8a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.3-4.7A8.5 8.5 0 1 1 20.5 11.8Z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M8.2 7.7c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4-.1.6.6 1.3 1.7 2.4 3 3 .2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.8.8c.3.1.4.3.4.5 0 .4-.2 1.2-.7 1.7-.5.6-1.4.9-2.3.7-1.4-.2-3.1-1-4.8-2.5-1.6-1.4-2.8-3.2-3.1-4.8-.2-.8.1-1.5.5-2Z" fill="currentColor"/>
+          </svg>
+        </a>
+
+        <button class="icon-button" id="openCart" aria-label="Abrir carrito">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+            <path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20.2 8H6.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9.2" cy="19.2" r="1.2" fill="currentColor"/>
+            <circle cx="17.2" cy="19.2" r="1.2" fill="currentColor"/>
+          </svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+
+        <button class="icon-button mobile-toggle" aria-label="Menú">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-copy">
+          <div class="eyebrow">El sonido que estabas buscando.</div>
+          <h1>Escucha cada<br>detalle.</h1>
+          <p class="hero-subtitle">
+            Audífonos inalámbricos con diseño premium, conexión rápida y opciones
+            con cancelación de ruido.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#productos" class="btn btn-primary">Comprar ahora</a>
+            <a href="#comparar" class="btn btn-outline">Comparar modelos</a>
+          </div>
+
+          <p class="hero-note">Compatibles con iOS y Android. Verifica las funciones exactas de cada referencia.</p>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-glow"></div>
+
+          <svg class="hero-product hero-four" viewBox="0 0 260 300">
+            <defs>
+              <linearGradient id="case4" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#fff"/>
+                <stop offset="1" stop-color="#d8d9dc"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="130" cy="261" rx="93" ry="18" fill="rgba(0,0,0,.10)"/>
+            <rect x="43" y="138" width="174" height="112" rx="50" fill="url(#case4)" stroke="#d0d1d5"/>
+            <path d="M61 171c42-27 96-27 138 0" fill="none" stroke="#c9cacf" stroke-width="2"/>
+            <circle cx="130" cy="221" r="4" fill="#8fd0a4"/>
+            <g transform="translate(35 17)">
+              <path d="M58 9c-23 0-38 18-38 42 0 20 13 35 31 35 13 0 22-9 22-21V33C73 18 67 9 58 9Z" fill="#f9f9fa" stroke="#d4d4d8"/>
+              <rect x="52" y="70" width="18" height="92" rx="9" fill="#fafafa" stroke="#d4d4d8"/>
+              <path d="M131 9c23 0 38 18 38 42 0 20-13 35-31 35-13 0-22-9-22-21V33c0-15 6-24 15-24Z" fill="#f9f9fa" stroke="#d4d4d8"/>
+              <rect x="119" y="70" width="18" height="92" rx="9" fill="#fafafa" stroke="#d4d4d8"/>
+            </g>
+          </svg>
+
+          <svg class="hero-product hero-pro" viewBox="0 0 380 330">
+            <defs>
+              <linearGradient id="casePro" x1="0" y1="0" x2=".8" y2="1">
+                <stop stop-color="#fff"/>
+                <stop offset="1" stop-color="#d9dade"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="190" cy="295" rx="115" ry="21" fill="rgba(0,0,0,.12)"/>
+            <rect x="70" y="145" width="240" height="140" rx="63" fill="url(#casePro)" stroke="#cecfd3" stroke-width="2"/>
+            <path d="M93 188c55-34 139-34 194 0" fill="none" stroke="#c8c9ce" stroke-width="2"/>
+            <circle cx="190" cy="252" r="5" fill="#89d09f"/>
+            <g transform="translate(60 5)">
+              <path d="M78 16c-35 0-59 23-59 55 0 29 21 49 47 49 20 0 34-13 34-31V51c0-22-8-35-22-35Z" fill="#fafafa" stroke="#d2d3d6" stroke-width="2"/>
+              <path d="M40 80c15 4 30 4 44-1" fill="none" stroke="#b9bbc0" stroke-width="3" stroke-linecap="round"/>
+              <rect x="74" y="99" width="23" height="92" rx="12" fill="#fafafa" stroke="#d2d3d6" stroke-width="2"/>
+              <path d="M182 16c35 0 59 23 59 55 0 29-21 49-47 49-20 0-34-13-34-31V51c0-22 8-35 22-35Z" fill="#fafafa" stroke="#d2d3d6" stroke-width="2"/>
+              <path d="M176 79c14 5 29 5 44 1" fill="none" stroke="#b9bbc0" stroke-width="3" stroke-linecap="round"/>
+              <rect x="163" y="99" width="23" height="92" rx="12" fill="#fafafa" stroke="#d2d3d6" stroke-width="2"/>
+            </g>
+          </svg>
+
+          <svg class="hero-product hero-max" viewBox="0 0 330 330">
+            <defs>
+              <linearGradient id="metalMax" x1="0" x2="1">
+                <stop stop-color="#dfe5e8"/>
+                <stop offset=".5" stop-color="#f8fafb"/>
+                <stop offset="1" stop-color="#b9c2c7"/>
+              </linearGradient>
+              <linearGradient id="cushionMax" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#29343b"/>
+                <stop offset="1" stop-color="#0b1115"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="165" cy="292" rx="110" ry="20" fill="rgba(0,0,0,.12)"/>
+            <path d="M89 159V116C89 32 241 32 241 116v43" fill="none" stroke="url(#metalMax)" stroke-width="32" stroke-linecap="round"/>
+            <path d="M107 105c17-47 99-47 116 0" fill="none" stroke="#222c32" stroke-width="15" stroke-linecap="round" opacity=".85"/>
+            <rect x="44" y="139" width="104" height="145" rx="40" fill="url(#metalMax)" stroke="#aeb7bc"/>
+            <rect x="182" y="139" width="104" height="145" rx="40" fill="url(#metalMax)" stroke="#aeb7bc"/>
+            <rect x="61" y="156" width="73" height="111" rx="30" fill="url(#cushionMax)"/>
+            <rect x="196" y="156" width="73" height="111" rx="30" fill="url(#cushionMax)"/>
+            <circle cx="256" cy="150" r="8" fill="#8f999e"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Beneficios de compra">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <span class="trust-icon">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+              <path d="M3 6h12v11H3V6Zm12 4h3l3 3v4h-6v-7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              <circle cx="7" cy="18" r="2" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="18" cy="18" r="2" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </span>
+          <div><strong>Envío nacional</strong><span>Entrega según ciudad de destino</span></div>
+        </div>
+
+        <div class="trust-item">
+          <span class="trust-icon">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M3 10h18" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </span>
+          <div><strong>Pago contraentrega</strong><span>Paga al recibir tu pedido</span></div>
+        </div>
+
+        <div class="trust-item">
+          <span class="trust-icon">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+              <path d="m12 3 7 3v5c0 4.7-2.7 8-7 10-4.3-2-7-5.3-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7"/>
+              <path d="m9 12 2 2 4-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div><strong>Compra protegida</strong><span>Garantía según condiciones</span></div>
+        </div>
+
+        <div class="trust-item">
+          <span class="trust-icon">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+              <path d="M5 18v-3a7 7 0 0 1 14 0v3" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M5 18H3v-4h2m14 4h2v-4h-2" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </span>
+          <div><strong>Asesoría personalizada</strong><span>Atención directa por WhatsApp</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="productos">
+      <div class="container">
+        <header class="section-header">
+          <div class="eyebrow">Elige tu modelo.</div>
+          <h2>Tres formas de disfrutar el sonido.</h2>
+          <p>Compara diseño, batería, ajuste y nivel de aislamiento antes de comprar.</p>
+        </header>
+
+        <div class="product-grid">
+          <!-- PRODUCTO 1 -->
+          <article class="product-card featured">
+            <div class="product-media">
+              <span class="discount">Oferta</span>
+              <span class="stock">Disponible</span>
+
+              <svg class="product-svg" viewBox="0 0 420 330" aria-label="Ilustración AirPods Pro 3">
+                <defs>
+                  <linearGradient id="pCase" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#fff"/>
+                    <stop offset="1" stop-color="#d8dade"/>
+                  </linearGradient>
+                </defs>
+                <ellipse cx="210" cy="299" rx="125" ry="18" fill="rgba(0,0,0,.09)"/>
+                <rect x="85" y="155" width="250" height="136" rx="62" fill="url(#pCase)" stroke="#cfd0d4" stroke-width="2"/>
+                <path d="M108 195c59-34 145-34 204 0" fill="none" stroke="#c5c6ca" stroke-width="2"/>
+                <circle cx="210" cy="260" r="5" fill="#83cf99"/>
+                <g transform="translate(77 4)">
+                  <path d="M86 14c-37 0-63 25-63 59 0 31 22 52 50 52 21 0 36-14 36-33V50c0-23-9-36-23-36Z" fill="#fbfbfb" stroke="#d0d1d4" stroke-width="2"/>
+                  <path d="M42 83c17 4 33 4 49-1" fill="none" stroke="#aaaeb4" stroke-width="4" stroke-linecap="round"/>
+                  <rect x="79" y="102" width="25" height="99" rx="12" fill="#fbfbfb" stroke="#d0d1d4" stroke-width="2"/>
+                  <path d="M180 14c37 0 63 25 63 59 0 31-22 52-50 52-21 0-36-14-36-33V50c0-23 9-36 23-36Z" fill="#fbfbfb" stroke="#d0d1d4" stroke-width="2"/>
+                  <path d="M175 82c16 5 32 5 49 1" fill="none" stroke="#aaaeb4" stroke-width="4" stroke-linecap="round"/>
+                  <rect x="160" y="102" width="25" height="99" rx="12" fill="#fbfbfb" stroke="#d0d1d4" stroke-width="2"/>
+                </g>
+              </svg>
+            </div>
+
+            <div class="product-content">
+              <div class="rating">★★★★★ <span>4,9 · 186 opiniones</span></div>
+              <h3 class="product-title">AirPods Pro 3</h3>
+              <p class="product-subtitle">Ajuste con almohadillas y cancelación activa de ruido.</p>
+
+              <div class="chips">
+                <span class="chip">Cancelación de ruido</span>
+                <span class="chip">Hasta 30 h con estuche</span>
+                <span class="chip">iOS y Android</span>
+              </div>
+
+              <div class="includes">
+                <strong>Contenido:</strong> dos audífonos, estuche, almohadillas, manual y cable de carga en la caja.
+              </div>
+
+              <div class="price-wrap">
+                <span class="old-price">$142.000</span>
+                <span class="price">$84.900</span>
+                <div class="finance">Precio de demostración editable.</div>
+
+                <div class="product-actions">
+                  <button class="btn btn-primary add-to-cart" data-id="pro3">Agregar al carrito</button>
+                  <button class="quick-view" data-detail="pro3" aria-label="Ver detalles">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/>
+                      <path d="M12 10v6m0-9h.01" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 2 -->
+          <article class="product-card">
+            <div class="product-media">
+              <span class="discount">-15%</span>
+              <span class="stock">Disponible</span>
+
+              <svg class="product-svg" viewBox="0 0 420 330" aria-label="Ilustración AirPods 4">
+                <defs>
+                  <linearGradient id="fourCase" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#fff"/>
+                    <stop offset="1" stop-color="#dadbde"/>
+                  </linearGradient>
+                </defs>
+                <ellipse cx="210" cy="298" rx="122" ry="18" fill="rgba(0,0,0,.09)"/>
+                <rect x="84" y="166" width="252" height="125" rx="58" fill="url(#fourCase)" stroke="#ced0d4" stroke-width="2"/>
+                <path d="M107 203c60-35 146-35 206 0" fill="none" stroke="#c5c7cb" stroke-width="2"/>
+                <circle cx="210" cy="260" r="5" fill="#88ce9d"/>
+                <g transform="translate(86 3)">
+                  <path d="M74 16c-31 0-52 24-52 55 0 27 18 47 42 47 18 0 30-12 30-29V49c0-20-8-33-20-33Z" fill="#fafafa" stroke="#d0d2d5" stroke-width="2"/>
+                  <rect x="70" y="101" width="22" height="105" rx="11" fill="#fafafa" stroke="#d0d2d5" stroke-width="2"/>
+                  <path d="M174 16c31 0 52 24 52 55 0 27-18 47-42 47-18 0-30-12-30-29V49c0-20 8-33 20-33Z" fill="#fafafa" stroke="#d0d2d5" stroke-width="2"/>
+                  <rect x="156" y="101" width="22" height="105" rx="11" fill="#fafafa" stroke="#d0d2d5" stroke-width="2"/>
+                </g>
+              </svg>
+            </div>
+
+            <div class="product-content">
+              <div class="rating">★★★★★ <span>4,9 · 252 opiniones</span></div>
+              <h3 class="product-title">AirPods 4</h3>
+              <p class="product-subtitle">Diseño abierto, controles táctiles y cancelación de ruido.</p>
+
+              <div class="chips">
+                <span class="chip">Cancelación de ruido</span>
+                <span class="chip">Carga inalámbrica</span>
+                <span class="chip">Control táctil</span>
+              </div>
+
+              <div class="includes">
+                <strong>Contenido:</strong> dos audífonos, estuche, manual y cable incluido.
+              </div>
+
+              <div class="price-wrap">
+                <span class="old-price">$88.000</span>
+                <span class="price">$74.900</span>
+                <div class="finance">Precio de demostración editable.</div>
+
+                <div class="product-actions">
+                  <button class="btn btn-primary add-to-cart" data-id="air4">Agregar al carrito</button>
+                  <button class="quick-view" data-detail="air4" aria-label="Ver detalles">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/>
+                      <path d="M12 10v6m0-9h.01" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 3 -->
+          <article class="product-card">
+            <div class="product-media">
+              <span class="discount">Oferta</span>
+              <span class="stock">6 colores</span>
+
+              <svg class="product-svg" viewBox="0 0 420 330" aria-label="Ilustración AirPods Max">
+                <defs>
+                  <linearGradient id="maxMetal" x1="0" x2="1">
+                    <stop stop-color="#d7dee2"/>
+                    <stop offset=".5" stop-color="#f7f9fa"/>
+                    <stop offset="1" stop-color="#aeb9bf"/>
+                  </linearGradient>
+                  <linearGradient id="maxPad" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#313c42"/>
+                    <stop offset="1" stop-color="#0b1013"/>
+                  </linearGradient>
+                </defs>
+                <ellipse cx="210" cy="298" rx="130" ry="20" fill="rgba(0,0,0,.10)"/>
+                <path d="M114 166v-48c0-99 192-99 192 0v48" fill="none" stroke="url(#maxMetal)" stroke-width="37" stroke-linecap="round"/>
+                <path d="M135 106c21-54 129-54 150 0" fill="none" stroke="#263038" stroke-width="17" stroke-linecap="round"/>
+                <rect x="59" y="144" width="122" height="151" rx="44" fill="url(#maxMetal)" stroke="#aeb8bd" stroke-width="2"/>
+                <rect x="239" y="144" width="122" height="151" rx="44" fill="url(#maxMetal)" stroke="#aeb8bd" stroke-width="2"/>
+                <rect x="78" y="162" width="87" height="115" rx="32" fill="url(#maxPad)"/>
+                <rect x="255" y="162" width="87" height="115" rx="32" fill="url(#maxPad)"/>
+                <circle cx="327" cy="156" r="9" fill="#879298"/>
+              </svg>
+            </div>
+
+            <div class="product-content">
+              <div class="rating">★★★★★ <span>Nuevo</span></div>
+              <h3 class="product-title">AirPods Max</h3>
+              <p class="product-subtitle">Diadema ajustable, sonido envolvente y aislamiento exterior.</p>
+
+              <div class="chips">
+                <span class="chip">Bluetooth 5.1</span>
+                <span class="chip">Ajuste cómodo</span>
+                <span class="chip">Varios colores</span>
+              </div>
+
+              <div class="includes">
+                <strong>Contenido:</strong> diadema, funda protectora, manual y cable de carga en la caja.
+              </div>
+
+              <div class="price-wrap">
+                <span class="old-price">$192.000</span>
+                <span class="price">$109.900</span>
+                <div class="finance">Precio de demostración editable.</div>
+
+                <div class="product-actions">
+                  <button class="btn btn-primary add-to-cart" data-id="max">Agregar al carrito</button>
+                  <button class="quick-view" data-detail="max" aria-label="Ver detalles">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/>
+                      <path d="M12 10v6m0-9h.01" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container experience-grid">
+        <article class="experience-main">
+          <div class="sound-waves" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <h2>Menos ruido.<br>Más música.</h2>
+          <p>
+            Elige una referencia con cancelación de ruido para concentrarte,
+            estudiar, viajar o disfrutar tus canciones favoritas.
+          </p>
+        </article>
+
+        <div class="experience-side">
+          <article class="info-card">
+            <div class="big-icon">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                <path d="M7 7h10v10H7V7Z" stroke="#6b37ca" stroke-width="1.8"/>
+                <path d="M9 3v4m6-4v4M9 17v4m6-4v4M3 9h4m10 0h4M3 15h4m10 0h4" stroke="#6b37ca" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Conexión rápida.</h3>
+            <p>Emparejamiento Bluetooth sencillo con celulares, tabletas y computadores.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="big-icon">
+              <svg width="31" height="31" viewBox="0 0 24 24" fill="none">
+                <path d="M9 3h6v3H9V3Zm-3 4h12v14H6V7Z" stroke="#178b59" stroke-width="1.8"/>
+                <path d="M9 11h6M9 15h6" stroke="#178b59" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Energía para tu día.</h3>
+            <p>Estuches de carga y cables incluidos según la referencia seleccionada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="comparar">
+      <div class="container">
+        <header class="section-header">
+          <div class="eyebrow">Comparación rápida.</div>
+          <h2>¿Cuál es para ti?</h2>
+          <p>Una guía sencilla para ayudarte a elegir el modelo adecuado.</p>
+        </header>
+
+        <div class="comparison">
+          <table>
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>AirPods Pro 3</th>
+                <th>AirPods 4</th>
+                <th>AirPods Max</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Diseño</td>
+                <td>In-ear con almohadillas</td>
+                <td>Abierto</td>
+                <td>Diadema</td>
+              </tr>
+              <tr>
+                <td>Cancelación activa de ruido</td>
+                <td class="check">Sí</td>
+                <td class="check">Sí</td>
+                <td class="dash">Verificar referencia</td>
+              </tr>
+              <tr>
+                <td>Aislamiento exterior</td>
+                <td class="check">Alto</td>
+                <td>Medio</td>
+                <td class="check">Alto</td>
+              </tr>
+              <tr>
+                <td>Cable incluido</td>
+                <td class="check">En la caja</td>
+                <td class="check">Sí</td>
+                <td class="check">En la caja</td>
+              </tr>
+              <tr>
+                <td>Uso recomendado</td>
+                <td>Viaje y concentración</td>
+                <td>Uso diario</td>
+                <td>Música y entretenimiento</td>
+              </tr>
+              <tr>
+                <td>Precio de demostración</td>
+                <td><strong>$84.900</strong></td>
+                <td><strong>$74.900</strong></td>
+                <td><strong>$109.900</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="opiniones">
+      <div class="container">
+        <header class="section-header">
+          <div class="eyebrow">Compradores satisfechos.</div>
+          <h2>Opiniones que generan confianza.</h2>
+          <p>Reemplaza estos textos de demostración por reseñas reales de tus clientes.</p>
+        </header>
+
+        <div class="review-summary">
+          <div class="score-card">
+            <span class="score-number">4,9</span>
+            <div class="stars">★★★★★</div>
+            <span style="color:var(--muted);font-size:13px">Basado en opiniones de ejemplo</span>
+          </div>
+
+          <div class="rating-bars">
+            <div class="bar-row"><span>5 ★</span><div class="bar"><span style="width:94%"></span></div><span>94%</span></div>
+            <div class="bar-row"><span>4 ★</span><div class="bar"><span style="width:5%"></span></div><span>5%</span></div>
+            <div class="bar-row"><span>3 ★</span><div class="bar"><span style="width:1%"></span></div><span>1%</span></div>
+            <div class="bar-row"><span>2 ★</span><div class="bar"><span style="width:0%"></span></div><span>0%</span></div>
+            <div class="bar-row"><span>1 ★</span><div class="bar"><span style="width:0%"></span></div><span>0%</span></div>
+          </div>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“El sonido es limpio, se conectaron rápido y llegaron bien empacados.”</p>
+            <div class="buyer">
+              <span class="avatar">CM</span>
+              <div><strong>Carolina M.</strong><small>Compra verificada</small></div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“La cancelación funciona bien para estudiar y el estuche mantiene la carga.”</p>
+            <div class="buyer">
+              <span class="avatar">JR</span>
+              <div><strong>Juan R.</strong><small>Compra verificada</small></div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Compré contraentrega y el proceso fue sencillo. Buena atención por WhatsApp.”</p>
+            <div class="buyer">
+              <span class="avatar">LV</span>
+              <div><strong>Laura V.</strong><small>Compra verificada</small></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="preguntas">
+      <div class="container">
+        <header class="section-header">
+          <div class="eyebrow">Resolvemos tus dudas.</div>
+          <h2>Preguntas frecuentes.</h2>
+        </header>
+
+        <div class="faq">
+          <details>
+            <summary>¿Los tres modelos incluyen cable?</summary>
+            <p>
+              En esta maqueta se indica que AirPods 4 trae cable incluido y que
+              AirPods Pro 3 y AirPods Max incluyen el cable dentro de la caja.
+              Confirma el contenido real antes de publicar.
+            </p>
+          </details>
+
+          <details>
+            <summary>¿Tienen cancelación de ruido?</summary>
+            <p>
+              La página presenta AirPods Pro 3 y AirPods 4 como opciones con
+              cancelación de ruido. En AirPods Max se recomienda verificar la
+              referencia exacta para no prometer una función que el producto no tenga.
+            </p>
+          </details>
+
+          <details>
+            <summary>¿Puedo pagar cuando llegue el pedido?</summary>
+            <p>
+              Sí, la maqueta incluye compra rápida contraentrega. Debes confirmar
+              las ciudades cubiertas y las políticas de tu transportadora.
+            </p>
+          </details>
+
+          <details>
+            <summary>¿Cuánto tarda el envío?</summary>
+            <p>
+              Puedes informar un rango estimado de uno a cinco días hábiles,
+              aclarando que el tiempo depende de la ciudad y de la operación logística.
+            </p>
+          </details>
+
+          <details>
+            <summary>¿Son originales de Apple?</summary>
+            <p>
+              Indica claramente la condición real del producto. Si son compatibles,
+              alternativos o de réplica, no los presentes como originales. La
+              transparencia evita reclamaciones y problemas legales.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <h2>Tu próximo sonido está aquí.</h2>
+        <p>
+          Elige tu modelo, agrégalo al carrito y completa tus datos para solicitar
+          el envío contraentrega.
+        </p>
+        <div class="cta-actions">
+          <a href="#productos" class="btn btn-white">Ver productos</a>
+          <a href="https://wa.me/573001234567?text=Hola%2C%20necesito%20asesor%C3%ADa%20para%20elegir%20mis%20aud%C3%ADfonos" class="btn btn-green" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo" aria-label="TECHVERSE">
+            <img class="footer-brand-logo" src="assets/logo-techverse.jpg" alt="TECHVERSE - Tecnología sin límites">
+          </a>
+          <p>
+            Tecnología sin límites. Audífonos inalámbricos, accesorios y soluciones tecnológicas con atención personalizada.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Comprar</h4>
+          <a href="#productos">AirPods Pro 3</a>
+          <a href="#productos">AirPods 4</a>
+          <a href="#productos">AirPods Max</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Ayuda</h4>
+          <a href="#preguntas">Preguntas frecuentes</a>
+          <a href="#">Seguimiento del pedido</a>
+          <a href="#">Cambios y garantía</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Contacto</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="legal">
+        <p>
+          © <span id="year"></span> TECHVERSE. Todos los derechos reservados.
+          Apple, AirPods y sus denominaciones son marcas de sus respectivos titulares.
+          Esta tienda no se presenta como distribuidor oficial.
+        </p>
+        <span>Colombia</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Carrito -->
+  <div class="overlay" id="drawerOverlay"></div>
+
+  <aside class="drawer" id="cartDrawer" aria-label="Carrito de compras">
+    <div class="drawer-header">
+      <h3>Tu carrito</h3>
+      <button class="icon-button" id="closeCart" aria-label="Cerrar carrito">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer-body" id="cartItems">
+      <div class="empty-cart">
+        <div>
+          <svg width="50" height="50" viewBox="0 0 24 24" fill="none" style="margin:0 auto 15px">
+            <path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20.2 8H6.1" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="9.2" cy="19.2" r="1.2" fill="currentColor"/>
+            <circle cx="17.2" cy="19.2" r="1.2" fill="currentColor"/>
+          </svg>
+          <strong>Tu carrito está vacío</strong>
+          <p>Agrega un producto para continuar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="total-row"><span>Total</span><strong id="cartTotal">$0</strong></div>
+      <button class="btn btn-primary btn-block" id="checkoutButton" disabled>Compra rápida contraentrega</button>
+      <div class="shipping-note">El valor del envío se confirma según el destino.</div>
+    </div>
+  </aside>
+
+  <!-- Compra rápida -->
+  <div class="modal" id="checkoutModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>Compra rápida contraentrega</h3>
+        <button class="icon-button close-modal" aria-label="Cerrar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="checkout-summary" id="checkoutSummary"></div>
+
+        <form id="checkoutForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Nombre *</label>
+              <input id="name" name="name" required>
+            </div>
+
+            <div class="field">
+              <label for="surname">Apellidos *</label>
+              <input id="surname" name="surname" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Celular *</label>
+              <input id="phone" name="phone" inputmode="tel" placeholder="3001234567" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email">
+            </div>
+
+            <div class="field">
+              <label for="department">Departamento *</label>
+              <select id="department" name="department" required>
+                <option value="">Selecciona</option>
+                <option>Amazonas</option>
+                <option>Antioquia</option>
+                <option>Arauca</option>
+                <option>Atlántico</option>
+                <option>Bolívar</option>
+                <option>Boyacá</option>
+                <option>Caldas</option>
+                <option>Caquetá</option>
+                <option>Casanare</option>
+                <option>Cauca</option>
+                <option>Cesar</option>
+                <option>Chocó</option>
+                <option>Córdoba</option>
+                <option>Cundinamarca</option>
+                <option>Bogotá D. C.</option>
+                <option>Huila</option>
+                <option>La Guajira</option>
+                <option>Magdalena</option>
+                <option>Meta</option>
+                <option>Nariño</option>
+                <option>Norte de Santander</option>
+                <option>Quindío</option>
+                <option>Risaralda</option>
+                <option>Santander</option>
+                <option>Sucre</option>
+                <option>Tolima</option>
+                <option>Valle del Cauca</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="city">Ciudad *</label>
+              <input id="city" name="city" required>
+            </div>
+
+            <div class="field full">
+              <label for="address">Dirección completa *</label>
+              <input id="address" name="address" placeholder="Calle, carrera, número, barrio, torre o apartamento" required>
+            </div>
+
+            <div class="field full">
+              <label for="notes">Notas del pedido</label>
+              <textarea id="notes" name="notes" placeholder="Color, referencia, indicaciones de entrega..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-help">
+            Esta maqueta no envía datos a un servidor. Al finalizar, genera un mensaje
+            de WhatsApp con el resumen del pedido.
+          </div>
+
+          <button class="btn btn-green btn-block" type="submit">Enviar pedido por WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detalles -->
+  <div class="modal" id="detailModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="detailTitle">Detalles del producto</h3>
+        <button class="icon-button close-modal" aria-label="Cerrar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" id="detailBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Producto agregado</div>
+
+  <script>
+    // ==========================================================
+    // CONFIGURACIÓN RÁPIDA
+    // ==========================================================
+    const STORE = {
+      name: "TECHVERSE",
+      whatsapp: "573001234567", // Reemplazar por el número real
+      shippingText: "El costo del envío se confirma según la ciudad."
+    };
+
+    const PRODUCTS = {
+      pro3: {
+        id: "pro3",
+        name: "AirPods Pro 3",
+        price: 84900,
+        icon: "🎧",
+        description: "Ajuste con almohadillas y cancelación activa de ruido.",
+        features: [
+          "Cancelación activa de ruido",
+          "Compatibilidad con iOS y Android",
+          "Hasta 30 horas usando el estuche",
+          "Control táctil y micrófono",
+          "Incluye cable de carga en la caja"
+        ]
+      },
+      air4: {
+        id: "air4",
+        name: "AirPods 4",
+        price: 74900,
+        icon: "🎵",
+        description: "Diseño abierto, controles táctiles y cancelación de ruido.",
+        features: [
+          "Cancelación de ruido",
+          "Diseño abierto y liviano",
+          "Carga inalámbrica compatible",
+          "Control táctil",
+          "Cable incluido"
+        ]
+      },
+      max: {
+        id: "max",
+        name: "AirPods Max",
+        price: 109900,
+        icon: "🎧",
+        description: "Diadema ajustable, sonido envolvente y aislamiento exterior.",
+        features: [
+          "Conexión Bluetooth",
+          "Aislamiento exterior",
+          "Diadema ajustable",
+          "Colores disponibles",
+          "Incluye funda y cable de carga en la caja"
+        ]
+      }
+    };
+
+    const formatCOP = value =>
+      new Intl.NumberFormat("es-CO", {
+        style: "currency",
+        currency: "COP",
+        maximumFractionDigits: 0
+      }).format(value);
+
+    let cart = [];
+
+    const cartDrawer = document.getElementById("cartDrawer");
+    const drawerOverlay = document.getElementById("drawerOverlay");
+    const cartItems = document.getElementById("cartItems");
+    const cartBadge = document.getElementById("cartBadge");
+    const cartTotal = document.getElementById("cartTotal");
+    const checkoutButton = document.getElementById("checkoutButton");
+    const checkoutModal = document.getElementById("checkoutModal");
+    const detailModal = document.getElementById("detailModal");
+    const toast = document.getElementById("toast");
+
+    function openCart(){
+      cartDrawer.classList.add("show");
+      drawerOverlay.classList.add("show");
+      document.body.classList.add("no-scroll");
+    }
+
+    function closeCart(){
+      cartDrawer.classList.remove("show");
+      drawerOverlay.classList.remove("show");
+      document.body.classList.remove("no-scroll");
+    }
+
+    function openModal(modal){
+      modal.classList.add("show");
+      modal.setAttribute("aria-hidden","false");
+      document.body.classList.add("no-scroll");
+    }
+
+    function closeModal(modal){
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden","true");
+      document.body.classList.remove("no-scroll");
+    }
+
+    function showToast(message){
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 1800);
+    }
+
+    function addToCart(id){
+      const existing = cart.find(item => item.id === id);
+      if(existing){
+        existing.quantity += 1;
+      }else{
+        cart.push({...PRODUCTS[id], quantity:1});
+      }
+      renderCart();
+      showToast(`${PRODUCTS[id].name} agregado`);
+      openCart();
+    }
+
+    function removeFromCart(id){
+      cart = cart.filter(item => item.id !== id);
+      renderCart();
+    }
+
+    function changeQuantity(id, delta){
+      const item = cart.find(item => item.id === id);
+      if(!item) return;
+      item.quantity += delta;
+      if(item.quantity <= 0) removeFromCart(id);
+      else renderCart();
+    }
+
+    function getTotal(){
+      return cart.reduce((sum,item) => sum + item.price * item.quantity,0);
+    }
+
+    function getCount(){
+      return cart.reduce((sum,item) => sum + item.quantity,0);
+    }
+
+    function renderCart(){
+      cartBadge.textContent = getCount();
+      cartTotal.textContent = formatCOP(getTotal());
+      checkoutButton.disabled = cart.length === 0;
+
+      if(cart.length === 0){
+        cartItems.innerHTML = `
+          <div class="empty-cart">
+            <div>
+              <svg width="50" height="50" viewBox="0 0 24 24" fill="none" style="margin:0 auto 15px">
+                <path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20.2 8H6.1" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="9.2" cy="19.2" r="1.2" fill="currentColor"/>
+                <circle cx="17.2" cy="19.2" r="1.2" fill="currentColor"/>
+              </svg>
+              <strong>Tu carrito está vacío</strong>
+              <p>Agrega un producto para continuar.</p>
+            </div>
+          </div>`;
+        return;
+      }
+
+      cartItems.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div class="cart-thumb">${item.icon}</div>
+          <div>
+            <strong>${item.name}</strong>
+            <small>${formatCOP(item.price)}</small>
+            <div style="display:flex;align-items:center;gap:9px;margin-top:8px">
+              <button class="icon-button" style="width:28px;height:28px;background:#f5f5f7" onclick="changeQuantity('${item.id}',-1)">−</button>
+              <span style="font-size:13px">${item.quantity}</span>
+              <button class="icon-button" style="width:28px;height:28px;background:#f5f5f7" onclick="changeQuantity('${item.id}',1)">+</button>
+            </div>
+          </div>
+          <button class="cart-remove" onclick="removeFromCart('${item.id}')" aria-label="Eliminar">×</button>
+        </div>
+      `).join("");
+    }
+
+    function renderCheckout(){
+      const summary = document.getElementById("checkoutSummary");
+      summary.innerHTML = cart.map(item => `
+        <div><span>${item.quantity} × ${item.name}</span><strong>${formatCOP(item.price * item.quantity)}</strong></div>
+      `).join("") + `
+        <div><span>Envío</span><strong>Por confirmar</strong></div>
+        <div class="grand-total"><span>Total productos</span><strong>${formatCOP(getTotal())}</strong></div>
+      `;
+    }
+
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+      button.addEventListener("click", () => addToCart(button.dataset.id));
+    });
+
+    document.querySelectorAll(".quick-view").forEach(button => {
+      button.addEventListener("click", () => {
+        const product = PRODUCTS[button.dataset.detail];
+        document.getElementById("detailTitle").textContent = product.name;
+        document.getElementById("detailBody").innerHTML = `
+          <p style="font-size:18px;color:#4b4b50">${product.description}</p>
+          <h4 style="margin-top:26px">Características</h4>
+          <ul style="padding-left:20px;color:#5b5b60;line-height:1.9">
+            ${product.features.map(feature => `<li>${feature}</li>`).join("")}
+          </ul>
+          <div style="margin:25px 0;padding:17px;border-radius:17px;background:#f5f5f7">
+            <span style="color:#6e6e73;font-size:13px">Precio</span>
+            <strong style="display:block;font-size:30px;margin-top:3px">${formatCOP(product.price)}</strong>
+          </div>
+          <button class="btn btn-primary btn-block" onclick="addToCart('${product.id}');closeModal(detailModal)">
+            Agregar al carrito
+          </button>
+        `;
+        openModal(detailModal);
+      });
+    });
+
+    document.getElementById("openCart").addEventListener("click", openCart);
+    document.getElementById("closeCart").addEventListener("click", closeCart);
+    drawerOverlay.addEventListener("click", closeCart);
+
+    checkoutButton.addEventListener("click", () => {
+      renderCheckout();
+      closeCart();
+      openModal(checkoutModal);
+    });
+
+    document.querySelectorAll(".close-modal").forEach(button => {
+      button.addEventListener("click", () => closeModal(button.closest(".modal")));
+    });
+
+    document.querySelectorAll(".modal").forEach(modal => {
+      modal.addEventListener("click", event => {
+        if(event.target === modal) closeModal(modal);
+      });
+    });
+
+    document.getElementById("checkoutForm").addEventListener("submit", event => {
+      event.preventDefault();
+      if(cart.length === 0) return;
+
+      const data = new FormData(event.currentTarget);
+      const productsText = cart
+        .map(item => `• ${item.quantity} x ${item.name} - ${formatCOP(item.price * item.quantity)}`)
+        .join("\n");
+
+      const message = [
+        `Hola, quiero realizar este pedido en ${STORE.name}:`,
+        "",
+        productsText,
+        "",
+        `Total productos: ${formatCOP(getTotal())}`,
+        STORE.shippingText,
+        "",
+        `Nombre: ${data.get("name")} ${data.get("surname")}`,
+        `Celular: ${data.get("phone")}`,
+        `Correo: ${data.get("email") || "No indicado"}`,
+        `Departamento: ${data.get("department")}`,
+        `Ciudad: ${data.get("city")}`,
+        `Dirección: ${data.get("address")}`,
+        `Notas: ${data.get("notes") || "Sin notas"}`
+      ].join("\n");
+
+      window.open(`https://wa.me/${STORE.whatsapp}?text=${encodeURIComponent(message)}`,"_blank","noopener");
+    });
+
+    document.addEventListener("keydown", event => {
+      if(event.key === "Escape"){
+        closeCart();
+        document.querySelectorAll(".modal.show").forEach(closeModal);
+      }
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    renderCart();
+  </script>
+</body>
+</html>
