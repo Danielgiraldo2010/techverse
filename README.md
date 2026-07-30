@@ -39,14 +39,12 @@ Crear `.env.local` usando `.env.example` como base.
 
 Variables principales:
 
-- `NEXT_PUBLIC_SITE_URL`
-- `NEXT_PUBLIC_STORE_NAME`
-- `NEXT_PUBLIC_STORE_WHATSAPP`
 - `NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY`
 - `MERCADOPAGO_ACCESS_TOKEN`
-- `MERCADOPAGO_WEBHOOK_SECRET`
 - `ADMIN_PASSWORD_HASH`
 - `ADMIN_SESSION_SECRET`
+
+`NEXT_PUBLIC_SITE_URL` es opcional. Si no se define, la app usa automaticamente la URL que entrega Vercel; en desarrollo usa `http://localhost:3000`.
 
 No subir `.env.local` al repositorio.
 
